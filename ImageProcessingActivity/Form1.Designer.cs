@@ -51,8 +51,17 @@
             pictureBox5 = new PictureBox();
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
+            tabPage3 = new TabPage();
+            tabPage4 = new TabPage();
+            tabPage5 = new TabPage();
+            pictureBox6 = new PictureBox();
+            menuStrip2 = new MenuStrip();
+            fileToolStripMenuItem1 = new ToolStripMenuItem();
+            openToolStripMenuItem1 = new ToolStripMenuItem();
             openFileDialog2 = new OpenFileDialog();
             openFileDialog3 = new OpenFileDialog();
+            openFileDialog4 = new OpenFileDialog();
+            button4 = new Button();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -62,6 +71,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            menuStrip2.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -172,6 +184,9 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage3);
+            tabControl1.Controls.Add(tabPage4);
+            tabControl1.Controls.Add(tabPage5);
             tabControl1.Location = new Point(-1, 1);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -190,6 +205,7 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Part 1";
             tabPage1.UseVisualStyleBackColor = true;
+            tabPage1.Click += tabPage1_Click;
             // 
             // tabPage2
             // 
@@ -266,6 +282,73 @@
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
             // 
+            // tabPage3
+            // 
+            tabPage3.Location = new Point(4, 29);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(973, 464);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Part 3";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            tabPage4.Location = new Point(4, 29);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Size = new Size(973, 464);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "Convolution";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            tabPage5.Controls.Add(button4);
+            tabPage5.Controls.Add(pictureBox6);
+            tabPage5.Controls.Add(menuStrip2);
+            tabPage5.ForeColor = Color.Black;
+            tabPage5.Location = new Point(4, 29);
+            tabPage5.Name = "tabPage5";
+            tabPage5.Size = new Size(973, 464);
+            tabPage5.TabIndex = 4;
+            tabPage5.Text = "Coins";
+            tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Location = new Point(335, 63);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(272, 296);
+            pictureBox6.TabIndex = 0;
+            pictureBox6.TabStop = false;
+            pictureBox6.Click += pictureBox6_Click;
+            // 
+            // menuStrip2
+            // 
+            menuStrip2.ImageScalingSize = new Size(20, 20);
+            menuStrip2.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem1 });
+            menuStrip2.Location = new Point(0, 0);
+            menuStrip2.Name = "menuStrip2";
+            menuStrip2.Size = new Size(973, 28);
+            menuStrip2.TabIndex = 1;
+            menuStrip2.Text = "menuStrip2";
+            menuStrip2.ItemClicked += menuStrip2_ItemClicked;
+            // 
+            // fileToolStripMenuItem1
+            // 
+            fileToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem1 });
+            fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
+            fileToolStripMenuItem1.Size = new Size(46, 24);
+            fileToolStripMenuItem1.Text = "File";
+            fileToolStripMenuItem1.Click += fileToolStripMenuItem1_Click;
+            // 
+            // openToolStripMenuItem1
+            // 
+            openToolStripMenuItem1.Name = "openToolStripMenuItem1";
+            openToolStripMenuItem1.Size = new Size(128, 26);
+            openToolStripMenuItem1.Text = "Open";
+            openToolStripMenuItem1.Click += openToolStripMenuItem1_Click;
+            // 
             // openFileDialog2
             // 
             openFileDialog2.FileName = "openFileDialog2";
@@ -275,6 +358,21 @@
             // 
             openFileDialog3.FileName = "openFileDialog3";
             openFileDialog3.FileOk += openFileDialog3_FileOk;
+            // 
+            // openFileDialog4
+            // 
+            openFileDialog4.FileName = "openFileDialog4";
+            openFileDialog4.FileOk += openFileDialog4_FileOk;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(410, 382);
+            button4.Name = "button4";
+            button4.Size = new Size(122, 29);
+            button4.TabIndex = 2;
+            button4.Text = "Count Coins";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // Form1
             // 
@@ -297,6 +395,11 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            tabPage5.ResumeLayout(false);
+            tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            menuStrip2.ResumeLayout(false);
+            menuStrip2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -327,5 +430,14 @@
         private Button button2;
         private OpenFileDialog openFileDialog2;
         private OpenFileDialog openFileDialog3;
+        private TabPage tabPage3;
+        private TabPage tabPage4;
+        private TabPage tabPage5;
+        private PictureBox pictureBox6;
+        private MenuStrip menuStrip2;
+        private ToolStripMenuItem fileToolStripMenuItem1;
+        private ToolStripMenuItem openToolStripMenuItem1;
+        private OpenFileDialog openFileDialog4;
+        private Button button4;
     }
 }

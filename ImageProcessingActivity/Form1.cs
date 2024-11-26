@@ -1,13 +1,17 @@
+using System;
 using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
 using System.Runtime.Intrinsics.X86;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ImageProcessingActivity
 {
     public partial class Form1 : Form
     {
-        Bitmap loaded, processed, imageA, imageB, colorgreen;
+        Bitmap loaded, processed, imageA, imageB, colorgreen, coinpic;
         public Form1()
         {
             InitializeComponent();
@@ -234,6 +238,81 @@ namespace ImageProcessingActivity
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripSplitButton1_ButtonClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripComboBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripContainer1_TopToolStripPanel_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            openFileDialog4.ShowDialog();
+        }
+
+        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void fileToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openFileDialog4_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            coinpic = new Bitmap(openFileDialog4.FileName);
+            pictureBox6.Image = coinpic;
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
 
         }
