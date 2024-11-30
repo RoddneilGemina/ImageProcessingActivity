@@ -348,17 +348,16 @@ namespace ImageProcessingActivity
                     }
                 }
             }
-            areas.RemoveAt(0);
             int[] coins = { 0, 0, 0, 0, 0 };
             foreach (int area in areas)
             {
-                if (area < 7000)
+                if (area < 2900)
                     coins[0]++;
-                else if (area < 10000)
+                else if (area < 4000)
                     coins[1]++;
-                else if (area < 14000)
+                else if (area < 5000)
                     coins[2]++;
-                else if (area < 18000)
+                else if (area < 7000)
                     coins[3]++;
                 else
                     coins[4]++;
@@ -366,19 +365,19 @@ namespace ImageProcessingActivity
 
             richTextBox1.Text += ($"COUNTS:\n");
 
-            richTextBox1.Text += ($"  5c:{coins[0]}\n");
-            richTextBox1.Text += ($"  10c:{coins[1]}\n");
-            richTextBox1.Text += ($"  25c:{coins[2]}\n");
-            richTextBox1.Text += ($"  1p:{coins[3]}\n");
-            richTextBox1.Text += ($"  5p:{coins[4]}\n\n");
+            richTextBox1.Text += ($"5 cents:{coins[0]}\n");
+            richTextBox1.Text += ($"10 cents:{coins[1]}\n");
+            richTextBox1.Text += ($"25 cents:{coins[2]}\n");
+            richTextBox1.Text += ($"1 peso:{coins[3]}\n");
+            richTextBox1.Text += ($"5 peso:{coins[4]}\n\n");
 
             richTextBox1.Text += ($"VALUES:\n");
 
-            richTextBox1.Text += ($"  5c:{coins[0] * 0.05}\n");
-            richTextBox1.Text += ($"  10c:{coins[1] * 0.10}\n");
-            richTextBox1.Text += ($"  25c:{coins[2] * 0.25}\n");
-            richTextBox1.Text += ($"  1p:{coins[3] * 1.00}\n");
-            richTextBox1.Text += ($"  5p:{coins[4] * 5.00}\n\n");
+            richTextBox1.Text += ($"5 cents:{coins[0] * 0.05}\n");
+            richTextBox1.Text += ($"10 cents:{coins[1] * 0.10}\n");
+            richTextBox1.Text += ($"25 cents:{coins[2] * 0.25}\n");
+            richTextBox1.Text += ($"1 peso:{coins[3] * 1.00}\n");
+            richTextBox1.Text += ($"5 peso:{coins[4] * 5.00}\n\n");
 
             richTextBox1.Text += ($"TOTAL VALUE: {coins[0] * 0.05 + coins[1] * 0.10 + coins[2] * 0.25 + coins[3] * 1.00 + coins[4] * 5.00}\n");
 

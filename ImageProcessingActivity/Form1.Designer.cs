@@ -40,6 +40,7 @@
             menuStrip2 = new MenuStrip();
             fileToolStripMenuItem1 = new ToolStripMenuItem();
             openToolStripMenuItem1 = new ToolStripMenuItem();
+            fileToolStripMenuItem2 = new ToolStripMenuItem();
             tabPage3 = new TabPage();
             tabPage2 = new TabPage();
             button3 = new Button();
@@ -68,7 +69,6 @@
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             tabControl1 = new TabControl();
-            fileToolStripMenuItem2 = new ToolStripMenuItem();
             tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             menuStrip2.SuspendLayout();
@@ -123,7 +123,7 @@
             // 
             // richTextBox1
             // 
-            richTextBox1.Location = new Point(669, 63);
+            richTextBox1.Location = new Point(457, 63);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.Size = new Size(218, 296);
             richTextBox1.TabIndex = 3;
@@ -132,7 +132,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(410, 382);
+            button4.Location = new Point(504, 379);
             button4.Name = "button4";
             button4.Size = new Size(122, 29);
             button4.TabIndex = 2;
@@ -142,10 +142,10 @@
             // 
             // pictureBox6
             // 
-            pictureBox6.Location = new Point(343, 63);
+            pictureBox6.Location = new Point(79, 63);
             pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(272, 296);
-            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox6.Size = new Size(277, 345);
+            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox6.TabIndex = 0;
             pictureBox6.TabStop = false;
             pictureBox6.Click += pictureBox6_Click;
@@ -172,9 +172,15 @@
             // openToolStripMenuItem1
             // 
             openToolStripMenuItem1.Name = "openToolStripMenuItem1";
-            openToolStripMenuItem1.Size = new Size(224, 26);
+            openToolStripMenuItem1.Size = new Size(128, 26);
             openToolStripMenuItem1.Text = "Open";
             openToolStripMenuItem1.Click += openToolStripMenuItem1_Click;
+            // 
+            // fileToolStripMenuItem2
+            // 
+            fileToolStripMenuItem2.Name = "fileToolStripMenuItem2";
+            fileToolStripMenuItem2.Size = new Size(128, 26);
+            fileToolStripMenuItem2.Text = "File";
             // 
             // tabPage3
             // 
@@ -424,12 +430,6 @@
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(981, 497);
             tabControl1.TabIndex = 3;
-            // 
-            // fileToolStripMenuItem2
-            // 
-            fileToolStripMenuItem2.Name = "fileToolStripMenuItem2";
-            fileToolStripMenuItem2.Size = new Size(224, 26);
-            fileToolStripMenuItem2.Text = "File";
             // 
             // Form1
             // 
