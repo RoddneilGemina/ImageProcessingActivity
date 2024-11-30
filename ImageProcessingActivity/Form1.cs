@@ -314,6 +314,152 @@ namespace ImageProcessingActivity
 
         private void button4_Click(object sender, EventArgs e)
         {
+            loaded = (Bitmap)pictureBox6.Image.Clone();
+            processed = (Bitmap)loaded.Clone();
+            for (int i = 10; i != 0; --i)
+            {
+                ImageProcess2.BitmapFilter.GaussianBlur(processed, 3);
+                ImageProcess2.BitmapFilter.Contrast(processed, 100);
+            }
+            int x = 0;
+            int y = 0;
+            Color px;
+            for (x = processed.Width - 1; x >= 0; --x)
+            {
+                for (y = processed.Height - 1; y >= 0; --y)
+                {
+                    px = processed.GetPixel(x, y);
+                    int r = 0;
+                    if (px.R < 120) r = 1;
+                    processed.SetPixel(x, y, Color.FromArgb(255, r, 0, 0));
+                }
+            }
+            List<int> areas = new List<int>();
+            int count = 0;
+            for (x = 0; x < processed.Width; x++)
+            {
+                for (y = 0; y < processed.Height; y++)
+                {
+                    px = processed.GetPixel(x, y);
+                    if (px.R == 1 && px.B == 0)
+                    {
+                        int area = dfsCoin(processed, x, y);
+                        areas.Add(area);
+                    }
+                }
+            }
+            areas.RemoveAt(0);
+            int[] coins = { 0, 0, 0, 0, 0 };
+            foreach (int area in areas)
+            {
+                if (area < 7000)
+                    coins[0]++;
+                else if (area < 10000)
+                    coins[1]++;
+                else if (area < 14000)
+                    coins[2]++;
+                else if (area < 18000)
+                    coins[3]++;
+                else
+                    coins[4]++;
+            }
+
+            richTextBox1.Text += ($"COUNTS:\n");
+
+            richTextBox1.Text += ($"  5c:{coins[0]}\n");
+            richTextBox1.Text += ($"  10c:{coins[1]}\n");
+            richTextBox1.Text += ($"  25c:{coins[2]}\n");
+            richTextBox1.Text += ($"  1p:{coins[3]}\n");
+            richTextBox1.Text += ($"  5p:{coins[4]}\n\n");
+
+            richTextBox1.Text += ($"VALUES:\n");
+
+            richTextBox1.Text += ($"  5c:{coins[0] * 0.05}\n");
+            richTextBox1.Text += ($"  10c:{coins[1] * 0.10}\n");
+            richTextBox1.Text += ($"  25c:{coins[2] * 0.25}\n");
+            richTextBox1.Text += ($"  1p:{coins[3] * 1.00}\n");
+            richTextBox1.Text += ($"  5p:{coins[4] * 5.00}\n\n");
+
+            richTextBox1.Text += ($"TOTAL VALUE: {coins[0] * 0.05 + coins[1] * 0.10 + coins[2] * 0.25 + coins[3] * 1.00 + coins[4] * 5.00}\n");
+
+        }
+        private int dfsCoin(Bitmap b, int x, int y)
+        {
+            int count = 0;
+            int dx, dy, i;
+            Tuple<int, int> pos;
+            Stack<Tuple<int, int>> fringe = new Stack<Tuple<int, int>>();
+            int[,] dir = { { 0, -1 }, { 0, 1 }, { -1, 0 }, { 1, 0 } };
+            fringe.Push(Tuple.Create(x, y));
+            while (fringe.Count > 0)
+            {
+                pos = fringe.Pop();
+                x = pos.Item1;
+                y = pos.Item2;
+                count += visit(x, y);
+                for (i = 0; i < dir.GetLength(0); i++)
+                {
+                    dx = x + dir[i, 0];
+                    dy = y + dir[i, 1];
+                    if (dx < 0 || dy < 0 || dx >= processed.Width || dy >= processed.Height) continue;
+                    Color px = processed.GetPixel(dx, dy);
+                    if (px.R == 1 && px.B == 0)
+                        fringe.Push(Tuple.Create(dx, dy));
+                }
+            }
+            return count;
+        }
+        private int visit(int x, int y)
+        {
+            Color px = processed.GetPixel(x, y);
+            processed.SetPixel(x, y, Color.FromArgb(255, px.R, px.G, 1));
+            if (px.B == 1)
+                return 0;
+            return px.R;
+        }
+
+        private void convolutionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void shrinkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            processed = (Bitmap)loaded.Clone();
+            ImageProcess2.BitmapFilter.Swirl(processed, 0.02, true);
+            pictureBox2.Image = processed;
+        }
+
+        private void gaussianBlurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            processed = (Bitmap)loaded.Clone();
+            ImageProcess2.BitmapFilter.GaussianBlur(processed, 11);
+            pictureBox2.Image = processed;
+        }
+
+        private void sharpenToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            processed = (Bitmap)loaded.Clone();
+            ImageProcess2.BitmapFilter.Sharpen(processed, 11);
+            pictureBox2.Image = processed;
+        }
+
+        private void meanRemovalToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            processed = (Bitmap)loaded.Clone();
+            ImageProcess2.BitmapFilter.MeanRemoval(processed, 11);
+            pictureBox2.Image = processed;
+        }
+
+        private void embossingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            processed = (Bitmap)loaded.Clone();
+            ImageProcess2.BitmapFilter.EmbossLaplacian(processed);
+            pictureBox2.Image = processed;
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
